@@ -18,4 +18,10 @@
       $stmt = static::$db->prepare($sql);
       return $stmt->execute();
     }
+
+    public function delete($id){
+      $sql = "delete from users where id = '$id'";
+      $stmt = static::$db->prepare($sql);
+      return $stmt->execute();
+    }
   }

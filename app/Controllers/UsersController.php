@@ -5,6 +5,7 @@
   use App\Models\User;
 
   class UsersController {
+    
     public function index()
     {
       $user           = new User();
@@ -12,6 +13,7 @@
       $data['result'] = $result;
       view('users.index', $data);
     }
+
     public function add()
     {
       if(isset($_POST['add'])){
@@ -29,6 +31,7 @@
       }
       view('users.add-user');
     }
+
     public function edit($id)
     {
       $user = new User();
@@ -41,12 +44,21 @@
         $email    = $_POST['email'];
         $password = $_POST['password'];
         $phone    = $_POST['phone'];
-        $result   = $user->update($fullname,$username,$email,$password,$phone,$idu);
-        if($result){
+        $result_edit   = $user->update($fullname,$username,$email,$password,$phone,$idu);
+        if($result_edit){
           header("LOCATION:/users/index?msg=Bạn sửa thành công");
           exit();
         }
       }
       view('users.edit-user', $data);
+    }
+
+    public function del($id){
+      $user = new User();
+      $result = $user->delete($id);
+      if($result){
+        header("LOCATION:/users/index?msg=Bạn sửa thành công");
+        exit();
+      }
     }
   }
