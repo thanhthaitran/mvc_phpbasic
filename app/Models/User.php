@@ -11,4 +11,11 @@
       $stmt = static::$db->prepare($sql);
       return $stmt->execute();
     }
+
+    public function update($fullname,$username,$email,$password,$phone, $id){
+      $sql = "UPDATE {$this->table} SET fullname = '$fullname', username = '$username', 
+              email = '$email', password = '$password', phone = '$phone' where id = '$id';";
+      $stmt = static::$db->prepare($sql);
+      return $stmt->execute();
+    }
   }
