@@ -24,7 +24,7 @@
         <td><?php echo $values['email']; ?></td>
         <td><?php echo $values['phone']; ?></td>
         <td>
-          <a href="/users/edit"><i class="fas fa-edit"></i></a> |
+          <a href="/users/edit/<?php echo $values['id']; ?>"><i class="fas fa-edit"></i></a> |
           <a href="/users/del"><i class="fas fa-trash-alt"></i></a>
         </td>
       </tr>

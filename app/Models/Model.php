@@ -18,8 +18,6 @@
       }
 
       static::$db = new Database();
-      // var_dump(static::$db);
-      // die();
     }
 
     public function db()
@@ -37,7 +35,6 @@
       $sql = "SELECT * FROM {$this->table} WHERE {$this->primaryKey}=:{$this->primaryKey}";
       $stmt = static::$db->prepare($sql);
       $stmt->execute([$this->primaryKey => $id]);
-
       return $stmt->fetch();
     }
 
