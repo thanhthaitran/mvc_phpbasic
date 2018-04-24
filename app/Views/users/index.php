@@ -6,7 +6,8 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Name</th>
+        <th>Full Name</th>
+        <th>User Name</th>
         <th>Email</th>
         <th>Phone</th>
         <th>Action</th>
@@ -14,25 +15,20 @@
     </thead>
     <tbody>
       <tr>
-        <td scope="row">1</td>
-        <td>Tran Thanh Thai</td>
-        <td>thaitranthanh@gmail.com</td>
-        <td>012345678910</td>
+      <?php
+        foreach($result as $key => $values){
+      ?>
+        <td scope="row"><?php echo $values['id']; ?></td>
+        <td><?php echo $values['fullname']; ?></td>
+        <td><?php echo $values['username']; ?></td>
+        <td><?php echo $values['email']; ?></td>
+        <td><?php echo $values['phone']; ?></td>
         <td>
           <a href="/users/edit"><i class="fas fa-edit"></i></a> |
           <a href="/users/del"><i class="fas fa-trash-alt"></i></a>
         </td>
       </tr>
-      <tr>
-        <td scope="row">1</td>
-        <td>Tran Thanh Thai</td>
-        <td>thaitranthanh@gmail.com</td>
-        <td>012345678910</td>
-        <td>
-          <a href="/users/edit"><i class="fas fa-edit"></i></a> |
-          <a href="/users/del"><i class="fas fa-trash-alt"></i></a>
-        </td>
-      </tr>
+      <?php } ?>
     </tbody>
   </table>
   <script defer src="/static/fontawesome/fontawesome-all.js"></script>

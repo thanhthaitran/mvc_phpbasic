@@ -7,11 +7,10 @@
   class UsersController {
     public function index()
     {
-      // $user = new User();
-      // $result = $user->all();
-      // $data['result'] = $result;
-      // view('users.show', $data);
-      view('users.index');
+      $user = new User();
+      $result = $user->all();
+      $data['result'] = $result;
+      view('users.index', $data);
     }
     public function add()
     {
