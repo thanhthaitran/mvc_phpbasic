@@ -7,10 +7,21 @@
   class UsersController {
     
     public function index()
-    {
-      $user           = new User();
-      $result         = $user->all();
-      $data['result'] = $result;
+    { 
+      $limit            = 5;
+      $user             = new User();
+      if(isset($_GET["page"])){
+        $current_page=$_GET["page"];
+      }else{
+        $current_page=1;
+      }
+      $rowcount         = $user->row();
+      $paginate         = ceil($rowcount/$limit);
+      $offset = ($current_page - 1) * $limit;
+      $result           = $user->show(['*'], $offset, $limit);
+      $data['paginate'] = $paginate;
+      $data['result']   = $result;
+      $data['current_page'] = $current_page;
       view('users.index', $data);
     }
 
@@ -54,7 +65,7 @@
     }
 
     public function del($id){
-      $user = new User();
+      $user   = new User();
       $result = $user->delete($id);
       if($result){
         header("LOCATION:/users/index?msg=Bạn sửa thành công");
