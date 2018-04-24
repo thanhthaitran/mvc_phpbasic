@@ -25,7 +25,7 @@
         <td><?php echo $values['phone']; ?></td>
         <td>
           <a href="/users/edit/<?php echo $values['id']; ?>"><i class="fas fa-edit"></i></a> |
-          <a href="/users/del"><i class="fas fa-trash-alt"></i></a>
+          <a href="/users/del/<?php echo $values['id']; ?>" onclick="alert('Are you sure?');"><i class="fas fa-trash-alt"></i></a>
         </td>
       </tr>
       <?php } ?>
