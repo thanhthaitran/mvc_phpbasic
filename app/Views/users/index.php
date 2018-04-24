@@ -31,6 +31,24 @@
       <?php } ?>
     </tbody>
   </table>
+  <div class = "add-user">
+    <?php
+      if($current_page > 1 && $paginate > 1){
+        echo '<a href="/users/index?page='.($current_page-1).'">Prev</a> | ';
+      }
+      for ($i = 1; $i <= $paginate; $i++){
+        if ($i == $current_page){
+          echo '<span>'.$i.'</span> | ';
+        }
+        else{
+          echo '<a href="/users/index?page='.$i.'">'.$i.'</a> | ';
+        }
+      }
+      if ($current_page < $paginate && $paginate > 1){
+        echo '<a href="/users/index?page='.($current_page+1).'">Next</a> ';
+      }
+    ?>
+  </div>
   <script defer src="/static/fontawesome/fontawesome-all.js"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
 </body>
