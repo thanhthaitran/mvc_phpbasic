@@ -1,7 +1,7 @@
 <?php
   include('../public/layout/header.php');
 ?>
-  <h1><span class="blue"><span class="yellow">Edit user</pan></h1>  
+  <h1><span class="blue"><span class="yellow">New user</pan></h1>  
   <div class="container form-top">
     <div class="row">
       <div class="col-md-6 col-md-offset-3 col-sm-12 col-xs-12">
@@ -29,7 +29,7 @@
                 <input type="tel" name="phone" required class="form-control" placeholder="Enter phone">
               </div>
               <div class="form-group">
-                <button class="btn btn-raised btn-lg btn-warning" type="submit" name="edit">Edit</button>
+                <button class="btn btn-raised btn-lg btn-warning" type="submit" name="add">Send</button>
                 <button class="btn btn-raised btn-lg btn-warning" type="reset">Reset</button>
               </div>
             </form>
