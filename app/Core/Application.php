@@ -12,7 +12,7 @@
    */
   class Application
   {
-    const DEFAULT_CONTROLLER = "\App\Controllers\Controller";
+    const DEFAULT_CONTROLLER = "\App\Controllers\UsersController";
     const DEFAULT_ACTION = 'index';
 
     private $controller;
