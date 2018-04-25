@@ -33,11 +33,22 @@
         $email     = $_POST['email'];
         $password  = $_POST['password'];
         $phone     = $_POST['phone'];
-        $add       = new User();
-        $result    = $add->insert($full_name,$user_name,$email,$password,$phone);
-        if($result){
-          header("LOCATION:/users/index?msg=Bạn đã thêm thành công");
-          exit();
+        if ($email != "" && $ $password != "" && $ $user_name != "")  {
+          $add       = new User();
+          $result    = $add->insert($full_name,$user_name,$email,$password,$phone);
+          if($result == true){
+            header("LOCATION:/users/index?msg=Bạn đã thêm thành công");
+            exit();
+          }
+        } else {
+      ?>
+        <div class="error-message">
+          <h4>
+            Error
+          </h4>
+          Sorry there was an error sending your form. 
+        </div>
+      <?php
         }
       }
       view('users.add-user');
@@ -55,10 +66,21 @@
         $email    = $_POST['email'];
         $password = $_POST['password'];
         $phone    = $_POST['phone'];
-        $result_edit   = $user->update($fullname,$username,$email,$password,$phone,$idu);
-        if($result_edit){
-          header("LOCATION:/users/index?msg=Bạn sửa thành công");
-          exit();
+        if ($email != "" && $ $password != "" && $ $user_name != "") {
+          $result_edit   = $user->update($fullname,$username,$email,$password,$phone,$idu);
+          if($result_edit){
+            header("LOCATION:/users/index?msg=Bạn sửa thành công");
+            exit();
+          }
+        } else {
+        ?>
+          <div class="error-message">
+            <h4>
+              Error
+            </h4>
+            Sorry there was an error sending your form. 
+          </div>
+        <?php
         }
       }
       view('users.edit-user', $data);
@@ -68,7 +90,7 @@
       $user   = new User();
       $result = $user->delete($id);
       if($result){
-        header("LOCATION:/users/index?msg=Bạn sửa thành công");
+        header("LOCATION:/users/index?msg=Bạn xóa thành công");
         exit();
       }
     }
