@@ -17,7 +17,9 @@
     public function insert($fullname,$username,$email,$password,$phone){
       $sql = "INSERT INTO {$this->table}(fullname,username,email,password,phone) VALUES ('$fullname','$username','$email','$password','$phone')";
       $stmt = static::$db->prepare($sql);
-      return $stmt->execute();
+      $stmt->execute();
+
+      return $stmt->excute();
     }
 
     public function update($fullname,$username,$email,$password,$phone, $id){

@@ -25,3 +25,16 @@
   transition-property: all;
   transition-timing-function: line;
 }
+.error-message {
+  text-align: center;
+  width: 39%;
+  height: 12%;
+  color: red;
+  background-color: #fff;
+  position: absolute;
+  bottom: -10px;
+  left: 30.5%;
+  border-radius: 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+}
