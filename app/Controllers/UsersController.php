@@ -33,7 +33,7 @@
         $email     = $_POST['email'];
         $password  = $_POST['password'];
         $phone     = $_POST['phone'];
-        if ($email != "" && $ $password != "" && $ $user_name != "")  {
+        if ($email != "" || $ $password != "" || $ $user_name != "")  {
           $add       = new User();
           $result    = $add->insert($full_name,$user_name,$email,$password,$phone);
           if($result == true){
@@ -66,7 +66,7 @@
         $email    = $_POST['email'];
         $password = $_POST['password'];
         $phone    = $_POST['phone'];
-        if ($email != "" && $ $password != "" && $ $user_name != "") {
+        if ($email != "" || $ $password != "" || $ $user_name != "") {
           $result_edit   = $user->update($fullname,$username,$email,$password,$phone,$idu);
           if($result_edit){
             header("LOCATION:/users/index?msg=Bạn sửa thành công");
